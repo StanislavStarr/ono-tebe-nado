@@ -6,7 +6,7 @@
 
 body {
   width: 1100px;
-  margin: 0 auto;
+  margin-inline: 50px;
   font-family: Raleway, sans-serif;
 }
 
@@ -31,4 +31,17 @@ a {
 
 img {
   width: 100%;
+}
+
+button {
+  background-color: transparent;
+  border-radius: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
 }
