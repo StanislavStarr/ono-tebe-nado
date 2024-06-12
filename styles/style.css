@@ -1,3 +1,17 @@
+.address {
+  font-style: normal;
+}
+
+.card::before, .cover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
 .header {
   justify-content: space-between;
   align-items: center;
@@ -22,8 +36,19 @@
     width: 138px;
   }
   
-  nav a:first-of-type {
+  nav li a:focus {
     text-decoration: none;
+  }
+  .nav li {
+    list-style-type: none;
+
+  }
+  .nav li + li::before {
+    content: "◦";
+    margin: 0 12px 0 0 ;
+  }
+  .nav li:first-child {
+    list-style-type: none;
   }
 }
 
@@ -35,8 +60,8 @@
   height: 757px;
   
   .cover__slogan {
-    position: absolute;
-    margin-top: 173px;
+    position: relative;
+    padding-top: 173px;
     padding-inline: 50px 22px;
     gap: 22px;
     text-transform: uppercase;
@@ -50,15 +75,15 @@
       line-height: 100px;
       letter-spacing: 0.3em;
     }
-    .last-letter {
+    .end-letter {
       margin-left: 0.3em;
     }
-    .first-letter {
+    .start-letter {
         margin-right: 0.3em;
     }
     span:nth-child(2) {
-      padding-top: 5px;
-      padding-left: 286px;
+      padding: 5px 54px 0 0;
+      text-align: center;
     }
     span:nth-child(3) {
       text-align: right;
@@ -69,15 +94,16 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
+    position: relative;
     bottom: 0;
-    padding: 0 50px 50px 78px;
+    padding: 135px 50px 50px 78px;
     word-spacing: 18px;
     font-size: 22px;
     text-transform: uppercase;
     color: #fff;
 
     .button {
+      cursor: pointer;
       color: #fff;
       border: 1px solid #fff;
       font-size: 22px;
@@ -89,41 +115,37 @@
   }
 }
 
-.cover::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
 .lots {
-  h1 {
-    padding: 180px 0 27px 64px;
+  h2 {
+    padding: 180px 0 4px 64px;
     font-size: 40px;
+    text-transform: uppercase;
   }
   
   .cards-container {
-    padding: 0 24px 30px 24px;
-    gap: 25px;
+    padding: 0 24px 28px 24px;
     
+    .cards-list {
+      flex-wrap: wrap;
+      list-style-type: none;
+      gap: 25px;
+    }
+
     .card {
       position: relative;
       width: 334px;
-      height: 563px;
+      min-height: 563px;
       background-repeat: no-repeat;
-      background-position: -100px;
+      background-position: center;
       background-size: cover;
       padding: 51px 40px 48px 40px;
       justify-content: space-between;
 
-      h2, p {
+      h3, p {
         color: #fff;
         z-index: 1;
       }
-      h2 {
+      h3 {
         font-size: 22px;
         text-decoration: underline;
         line-height: 26.4px;
@@ -155,16 +177,6 @@
   }
 }
 
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
 .about {
   gap: 72px;
   padding: 182px 0 0 71px;
@@ -172,8 +184,7 @@
   .about__logo {
     min-width: 240px;
     height: 240px;
-    border: 1px solid #000;
-    border-radius: 120px;
+    border-radius: 50%;
     background-color: #000;
     background-image: url('../images/logo-white.svg');
     background-repeat: no-repeat;
@@ -183,34 +194,20 @@
   .about__paragraph {
     padding: 102px 29px 0 0;
 
-    h1 {
+    h2 {
       font-size: 40px;
       line-height: 46.96px;
       padding-bottom: 100px;
+      text-transform: uppercase;
+    }
+
+    .indented-paragraph {
+      padding-bottom: 24px;
     }
 
     p {
       font-size: 20px;
       line-height: 24px;
-      letter-spacing: 0.01em;
-    }
-
-    p .span1 {
-      letter-spacing: 0em;
-    }
-    p .span2 {
-      letter-spacing: 0.01em;
-    }
-    p .span3 {
-      letter-spacing: -0.01em;
-    }
-    p .span4 {
-      letter-spacing: 0.03em;
-    }
-    p .span5 {
-      letter-spacing: 0.04em;
-    }
-    p .span6 {
       letter-spacing: 0.01em;
     }
   }
@@ -232,7 +229,10 @@
     font-size: 18px;
     line-height: 21px;
   }
-  .footer__nav a:first-of-type {
+  .footer__nav li {
+    list-style-type: none;
+  }
+  .footer__nav a:focus {
     text-decoration: none;
   }
   .footer__social-list {
